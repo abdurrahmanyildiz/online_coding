@@ -6,26 +6,24 @@
 
 class Solution {
     public int solution(int N) {
-        String binStr = Integer.toBinaryString(N);
+        String binaryString = Integer.toBinaryString(N);
 
-        if(binStr.indexOf("1") == binStr.lastIndexOf("1")){
+        if(binaryString.indexOf("1") == binaryString.lastIndexOf("1")){
             return 0;
         }
 
+        binaryString = binaryString.substring(0, binaryString.lastIndexOf("1"));
 
-        binStr = binStr.substring(0, binStr.lastIndexOf("1"));
-
-        String[] gaps = binStr.split("1");
+        String[] gaps = binaryString.split("1");
         int max =0;
+        
         for(String i: gaps){
             if(i.length()> max){
                 max = i.length();
             }
-
         }
 
-        return max;
-
-        
+        return max;        
     }
+    
 }
